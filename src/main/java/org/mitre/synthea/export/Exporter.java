@@ -132,9 +132,9 @@ public abstract class Exporter {
       deferredExports.add(new ImmutablePair<Person, Long>(person, stopTime));
     } else {
       int yearsOfHistory = Integer.parseInt(Config.get("exporter.years_of_history"));
-      if (yearsOfHistory > 0) {
+      // if (yearsOfHistory > 0) {
         person = filterForExport(person, yearsOfHistory, stopTime);
-      }
+      // }
       if (!person.alive(stopTime)) {
         filterAfterDeath(person);
       }
@@ -224,7 +224,7 @@ public abstract class Exporter {
       }
     }
     if (Config.getAsBoolean("exporter.fhir.export")) {
-      File outDirectory = getOutputFolder("fhir", person);
+      File outDirectory = getOutputFolder("bundles", person);
       if (Config.getAsBoolean("exporter.fhir.bulk_data")) {
         org.hl7.fhir.r4.model.Bundle bundle = FhirR4.convertToFHIR(person, stopTime);
         IParser parser = FhirR4.getContext().newJsonParser().setPrettyPrint(false);

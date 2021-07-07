@@ -130,7 +130,7 @@ public class CodeResolveAndExportTest {
 
     File stu3OutputDirectory = Exporter.getOutputFolder("fhir_stu3", person);
     stu3OutputPath = stu3OutputDirectory.toPath().resolve(Exporter.filename(person, "", "json"));
-    File r4OutputDirectory = Exporter.getOutputFolder("fhir", person);
+    File r4OutputDirectory = Exporter.getOutputFolder("bundles", person);
     r4OutputPath = r4OutputDirectory.toPath().resolve(Exporter.filename(person, "", "json"));
     File dstu2OutputDirectory = Exporter.getOutputFolder("fhir_dstu2", person);
     dstu2OutputPath = dstu2OutputDirectory.toPath().resolve(Exporter.filename(person, "", "json"));

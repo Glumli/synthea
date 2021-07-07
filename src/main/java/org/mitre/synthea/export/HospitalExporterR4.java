@@ -57,7 +57,7 @@ public abstract class HospitalExporterR4 {
 
       // get output folder
       List<String> folders = new ArrayList<>();
-      folders.add("fhir");
+      folders.add("bundles");
       String baseDirectory = Config.get("exporter.baseDirectory");
       File f = Paths.get(baseDirectory, folders.toArray(new String[0])).toFile();
       f.mkdirs();

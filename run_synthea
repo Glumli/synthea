@@ -5,6 +5,7 @@
 ##  Synthea launcher for UN*X
 ##
 ##############################################################################
+./gradlew cleanOutput
 
 if [ $# -eq 0 ]; then
   # run synthea with no args

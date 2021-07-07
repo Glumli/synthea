@@ -51,7 +51,7 @@ public class HospitalExporterTestR4 {
     Provider.getProviderList().get(0).incrementEncounters(EncounterType.WELLNESS, 0);
     HospitalExporterR4.export(new Generator(), 0L);
 
-    File expectedExportFolder = tempOutputFolder.toPath().resolve("fhir").toFile();
+    File expectedExportFolder = tempOutputFolder.toPath().resolve("bundles").toFile();
     assertTrue(expectedExportFolder.exists() && expectedExportFolder.isDirectory());
 
     File expectedExportFile = expectedExportFolder.toPath().resolve("hospitalInformation0.json")

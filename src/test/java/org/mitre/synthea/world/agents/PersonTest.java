@@ -302,7 +302,7 @@ public class PersonTest {
       generator.generatePerson(0, 42L);
 
       // Check that the output files exist
-      File expectedExportFolder = tempOutputFolder.toPath().resolve("fhir").toFile();
+      File expectedExportFolder = tempOutputFolder.toPath().resolve("bundles").toFile();
       assertTrue(expectedExportFolder.exists() && expectedExportFolder.isDirectory());
 
       for (File txtFile : expectedExportFolder.listFiles()) {

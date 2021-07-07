@@ -506,10 +506,10 @@ public class CSVExporter {
 
     int yearsOfHistory = Integer.parseInt(Config.get("exporter.years_of_history"));
     Calendar cutOff = new GregorianCalendar(1900, 0, 1);
-    if (yearsOfHistory > 0) {
+    // if (yearsOfHistory > 0) {
       cutOff = Calendar.getInstance();
       cutOff.set(cutOff.get(Calendar.YEAR) - yearsOfHistory, 0, 1);
-    }
+    // }
     Calendar now = Calendar.getInstance();
     Calendar birthDay = Calendar.getInstance();
     birthDay.setTimeInMillis((long) person.attributes.get(Person.BIRTHDATE));
