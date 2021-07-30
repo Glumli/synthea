@@ -10,7 +10,7 @@ const RESOURCES_DIR = `${__dirname}/../output/resources`;
 const COHORTS = ["Hypertension"];
 
 COHORTS.forEach((cohort) => {
-  const patients = getDirectories(`./${cohort}`);
+  const patients = getDirectories(`${RESOURCES_DIR}/${cohort}`);
   patients.forEach((patient) => {
     const patientDir = `${RESOURCES_DIR}/${cohort}/${patient}`;
     generateResourcesFile(patientDir, `${patientDir}/testResources.ts`);
