@@ -69,16 +69,17 @@ function generateCohortsFile(inputDir, cohorts) {
 function generateCohortFile(inputDir, cohort) {
   const patientDirs = getDirectories(`${inputDir}/${cohort}`);
   let code = "";
+  // patientDirs.forEach((dir) => {
+  //   code = `${code}import ${getVariableName(
+  //     dir
+  //   )} from "./${dir}/testResources";\n`;
+  // });
+  code = `${code}\nexport default [\n`;
   patientDirs.forEach((dir) => {
-    code = `${code}import ${getVariableName(
-      dir
-    )} from "./${dir}/testResources";\n`;
+    const filename = dir.split("/").pop().split(".")[0];
+    code = `${code}  '${filename}',\n`;
   });
-  code = `${code}\nexport default {\n`;
-  patientDirs.forEach((dir) => {
-    code = `${code}  ${getVariableName(dir)},\n`;
-  });
-  code = `${code}};\n`;
+  code = `${code}];\n`;
 
   writeFileSync(`${inputDir}/${cohort}/testPatients.ts`, code);
 }
