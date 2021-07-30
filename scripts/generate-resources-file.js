@@ -1,6 +1,21 @@
-const { generateResourcesFile } = require("./utils/generate-resources-file");
+const {
+  generateResourcesFile,
+  getFiles,
+  getDirectories,
+  generateCohortsFile,
+} = require("./utils/generate-resources-file");
 
-const RESOURCES_DIR = `${__dirname}/../src/resources/s4h/resources`;
-const FILE_PATH = `${__dirname}/../src/resources/s4h/testResources.ts`;
+const RESOURCES_DIR = `${__dirname}/../output/resources`;
 
-generateResourcesFile(RESOURCES_DIR, FILE_PATH);
+const COHORTS = ["Hypertension"];
+
+COHORTS.forEach((cohort) => {
+  const patients = getDirectories(`./${cohort}`);
+  patients.forEach((patient) => {
+    const patientDir = `${RESOURCES_DIR}/${cohort}/${patient}`;
+    generateResourcesFile(patientDir, `${patientDir}/testResources.ts`);
+  });
+  generateCohortsFile(`${RESOURCES_DIR}`, COHORTS);
+});
+
+// generateResourcesFile(RESOURCES_DIR, FILE_PATH);

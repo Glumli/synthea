@@ -84,4 +84,9 @@ function generateCohortFile(inputDir, cohort) {
   writeFileSync(`${inputDir}/${cohort}/testPatients.ts`, code);
 }
 
-module.exports = { generateResourcesFile, getFiles, generateCohortsFile };
+module.exports = {
+  generateResourcesFile,
+  getDirectories,
+  getFiles,
+  generateCohortsFile,
+};
