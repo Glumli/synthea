@@ -39,9 +39,11 @@ function generateResourcesFile(inputDir, outputFile) {
   let code = "";
   files.forEach((file) => {
     const variableName = getVariableName(file);
-    code = `${code}import ${variableName} from "./${file.split("/").pop()}";\n`;
+    code = `${code}const ${variableName} = require("./${file
+      .split("/")
+      .pop()}");\n`;
   });
-  code = `${code}\nexport default {\n`;
+  code = `${code}\nmodule.exports {\n`;
   files.forEach((file) => {
     const variableName = getVariableName(file);
     code = `${code}  ${variableName},\n`;

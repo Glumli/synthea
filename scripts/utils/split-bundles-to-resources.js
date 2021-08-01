@@ -152,7 +152,7 @@ function prepareCohorts(inputDir, outputDir, cohorts = []) {
         });
       });
       console.log();
-      generateResourcesFile(patientDir, `${patientDir}/testResources.ts`);
+      generateResourcesFile(patientDir, `${patientDir}/testResources.js`);
     });
   });
   generateCohortsFile(outputDir, cohorts);
