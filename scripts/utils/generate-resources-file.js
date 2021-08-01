@@ -43,7 +43,7 @@ function generateResourcesFile(inputDir, outputFile) {
       .split("/")
       .pop()}");\n`;
   });
-  code = `${code}\nmodule.exports {\n`;
+  code = `${code}\nmodule.exports = {\n`;
   files.forEach((file) => {
     const variableName = getVariableName(file);
     code = `${code}  ${variableName},\n`;
