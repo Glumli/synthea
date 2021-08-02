@@ -78,7 +78,7 @@ function generateCohortFile(inputDir, cohort) {
   // });
   code = `${code}\nexport default [\n`;
   patientDirs.forEach((dir) => {
-    const filename = dir.split("/").pop().split(".")[0];
+    const filename = dir.split("/").pop().split(".")[0].replace("'", "\\'");
     code = `${code}  '${filename}',\n`;
   });
   code = `${code}];\n`;

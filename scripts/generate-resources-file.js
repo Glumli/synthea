@@ -13,7 +13,7 @@ COHORTS.forEach((cohort) => {
   const patients = getDirectories(`${RESOURCES_DIR}/${cohort}`);
   patients.forEach((patient) => {
     const patientDir = `${RESOURCES_DIR}/${cohort}/${patient}`;
-    generateResourcesFile(patientDir, `${patientDir}/testResources.ts`);
+    generateResourcesFile(patientDir, `${patientDir}/testResources.js`);
   });
   generateCohortsFile(`${RESOURCES_DIR}`, COHORTS);
 });
